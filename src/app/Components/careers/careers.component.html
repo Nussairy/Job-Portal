@@ -1,0 +1,168 @@
+<header>
+    <nav class="navbar navbar-expand-lg px-4 bg-primary pt-3 pb-5">
+        <div class="container-fluid">
+            <div class="text-light">
+                <a href="">
+                    <img src="../../../assets/img/logo.png" alt="logo">
+                </a>
+                <h1 class="mt-2 mb-0">Careers</h1>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active text-light btn btn-warning px-4" aria-current="page" href="">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<section class="mt-5 container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <div class="d-flex justify-content-between">
+                <h4 class="ms-3 me-0">Filters</h4>
+                <button class="btn btn-outline-secondary btn-lg" (click)="Reset()">Reset</button>
+            </div>
+
+            <div class="container mt-3">
+                <div class="accordion" id="filters">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="heading-1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#filter-1" aria-expanded="false" aria-controls="filter-1">
+                                Job Type
+                            </button>
+                        </h3>
+                        <div id="filter-1" class="accordion-collapse collapse" aria-labelledby="heading-1"
+                            data-bs-parent="#filters">
+                            <div class="accordion-body">
+                                <input type="radio" name="jobtype" class="form-check-input me-1" value="Full-time"
+                                    id="full-time" [(ngModel)]="selectedRadioValue"
+                                    (change)="onChange(selectedRadioValue)">
+                                <label for="full-time" class="form-check-label">Full Time</label>
+                                <br>
+                                <input type="radio" name="jobtype" class="form-check-input me-1" value="Part-time"
+                                    id="part-time" [(ngModel)]="selectedRadioValue"
+                                    (change)="onChange(selectedRadioValue)">
+                                <label for="part-time" class="form-check-label">Part Time</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+
+                        <h3 class="accordion-header" id="heading-2">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#filter-2" aria-expanded="false" aria-controls="filter-2">
+                                Job Setup
+                            </button>
+                        </h3>
+
+                        <div id="filter-2" class="accordion-collapse collapse" aria-labelledby="heading-2"
+                            data-bs-parent="#filters">
+                            <div class="accordion-body">
+                                <input type="radio" name="jobsetup" class="form-check-input me-1" value="On-site"
+                                    id="onsite" [(ngModel)]="selectedRadioValue"
+                                    (change)="onChange(selectedRadioValue)">
+                                <label for="onsite" class="form-check-label">On-site</label>
+                                <br>
+                                <input type="radio" name="jobsetup" class="form-check-input me-1" value="Hybrid"
+                                    id="hybrid" [(ngModel)]="selectedRadioValue"
+                                    (change)="onChange(selectedRadioValue)">
+                                <label for="hybrid" class="form-check-label">Hybrid</label>
+                                <br>
+                                <input type="radio" name="jobsetup" class="form-check-input me-1" value="Remote"
+                                    id="remote" [(ngModel)]="selectedRadioValue"
+                                    (change)="onChange(selectedRadioValue)">
+                                <label for="remote" class="form-check-label">Remote</label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+
+            <div class="row g-4">
+
+                <ng-container *ngIf="searchedJobs && searchedJobs.length > 0; else elsefilteredJobs">
+
+                    <div *ngFor="let job of searchedJobs" class="col-md-4">
+
+                        <div class="card rounded-4">
+
+                            <div class="card-body">
+
+                                <h3 class="card-title">{{ job.title }}</h3>
+                                <p>{{ job.type }} • {{ job.location }} • {{ job.setup }}</p>
+                                <p class="card-text">{{ job.description }}</p>
+                                <h5 class="card-title">{{ job.salary }}</h5>
+
+                                <div class="d-flex justify-content-around">
+                                    <button class="btn btn-outline-secondary mt-3" (click)="viewDetails(job)">View
+                                        Details</button>
+                                    <button class="btn btn-primary mt-3" (click)="applyNow()">Apply Now</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </ng-container>
+
+                <ng-template #elsefilteredJobs>
+
+                    <ng-container *ngIf="filteredJobs && filteredJobs.length > 0; else elseBlock">
+                        <div *ngFor="let job of filteredJobs" class="col-md-4">
+                            <div class="card rounded-4">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ job.title }}</h3>
+                                    <p>{{ job.type }} • {{ job.location }} • {{ job.setup }}</p>
+                                    <p class="card-text">{{ job.description }}</p>
+                                    <h5 class="card-title">{{ job.salary }}</h5>
+                                    <div class="d-flex justify-content-around">
+                                        <button class="btn btn-outline-secondary mt-3" (click)="viewDetails(job)">View
+                                            Details</button>
+                                        <button class="btn btn-primary mt-3" (click)="applyNow()">Apply Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+
+                    <ng-template #elseBlock>
+                        <div *ngFor="let job of jobs" class="col-md-4">
+                            <div class="card rounded-4">
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ job.title }}</h3>
+                                    <p>{{ job.type }} • {{ job.location }} • {{ job.setup }}</p>
+                                    <p class="card-text">{{ job.description }}</p>
+                                    <h5 class="card-title">{{ job.salary }}</h5>
+                                    <div class="d-flex justify-content-around">
+                                        <button class="btn btn-outline-secondary mt-3" (click)="viewDetails(job)">View
+                                            Details</button>
+                                        <button class="btn btn-primary mt-3" (click)="applyNow()">Apply Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+
+                </ng-template>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer class="mt-5 mb-0"></footer>

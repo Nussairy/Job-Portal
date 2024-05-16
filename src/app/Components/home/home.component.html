@@ -1,0 +1,116 @@
+<div class="header align-content-center position-relative">
+
+    <div class="layer position-absolute top-0 bottom-0 start-0 end-0 d-flex align-items-center">
+
+        <nav class="navbar navbar-expand-lg position-fixed top-0 start-0 end-0 px-4">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link active text-light me-3 align-self-center" aria-current="page" href="careers">Find Jobs</a>
+                        <button *ngIf="isLoggedIn" class="btn btn-warning btn-sm me-3" (click)="Logout()">
+                            <a class="nav-link active">Logout</a>
+                        </button>
+                        <button *ngIf="!isLoggedIn" class="btn btn-warning btn-sm me-3">
+                            <a class="nav-link active" routerLink="/login">Login</a>
+                        </button>
+                        <a href="profile">
+                            <img src="../../../assets/img/profile.png" style="width: 50px; height: auto;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="text-light w-50 align px-4">
+            <h1>Explore Open Career Opportunities</h1>
+            <h5>We commit to exceptional company cluture and outstanding benefits</h5>
+            <div class="input-group mb-3">
+                <input id="search" type="text" class="form-control" placeholder="Find the job that best suits you.">
+                <button class="btn btn-primary" type="button" id="button-addon2" routerLink="/careers" (click)="search()">Search</button>
+              </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container mt-5 d-flex align-items-center justify-content-between">
+
+    <h2 class="w-25">Most Featured Jobs :</h2>
+
+    <div class="d-flex justify-content-between">
+        <h4 class="w-100"><a href="careers" class="text-decoration-none text-dark">Explore More</a></h4>
+
+        <a href="careers" class="text-decoration-none text-dark">
+            <i class="fa-solid fa-arrow-right-long fs-2 ms-1"></i>
+        </a>
+
+    </div>
+
+</div>
+
+<div class="container mt-5">
+    <div class="row gx-4">
+        <div *ngFor="let job of popularJobs" class="col-md-4">
+            <div class="p-md-5 border rounded-5">
+                <h3>{{job.title}}</h3>
+                <p><b>{{job.description}}</b></p>
+                <h4>{{job.type}}</h4>
+                <button class="btn btn-primary w-100 mt-3" (click)="getJob(job)">Apply Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 d-flex align-items-center justify-content-between">
+
+    <h2>Most Featured Locations :</h2>
+
+    <div class="d-flex justify-content-between">
+        <h4 class="w-100"><a href="" class="text-decoration-none text-dark">View all locations</a></h4>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path
+                d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+        </svg>
+
+    </div>
+
+</div>
+
+<div class="container mt-5">
+    <div class="row gx-2">
+        
+        <div class="col-md-3">
+            <div class="australia rounded-3 pt-md-5 pb-3">
+                <h4 class="text-light ms-2 mt-5">Australia</h4>
+                <h6 class="text-light ms-2">80 jobs</h6>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="canada rounded-3 pt-md-5 pb-3">
+                <h4 class="text-light ms-2 mt-5">Canada</h4>
+                <h6 class="text-light ms-2">50 jobs</h6>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="usa rounded-3 pt-md-5 pb-3">
+                <h4 class="text-light ms-2 mt-5">USA</h4>
+                <h6 class="text-light ms-2">100 jobs</h6>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="newzealand rounded-3 pt-md-5 pb-3">
+                <h4 class="text-light ms-2 mt-5">New Zealand</h4>
+                <h6 class="text-light ms-2">20 jobs</h6>
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+
+<footer class="mt-5"></footer>

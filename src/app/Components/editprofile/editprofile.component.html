@@ -1,0 +1,126 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #f4f7fa;
+    }
+
+    .profile-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .header-link {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .info-title {
+        color: #007bff;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <div class="imgprofile">
+            <img src="../../../assets/img/logo.png" style="width: 70px; height: auto;">
+        </div>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+            <div>
+                <button class="btn btn-outline-info border-0  mb-3" style="padding: 10px;"
+                    (click)="cancel()">Profile</button><br>
+            </div>
+            <div>
+                <button class="btn btn-outline-info border-0  mb-3" style="padding: 10px;"
+                    (click)="careers()">Jobs</button><br>
+            </div>
+        </ul>
+
+        <div>
+            <button class="btn bg-transparent; btn btn-outline-info border-0  mb-3" style="padding: 10px;"><i
+                    class="fa-solid fa-arrow-left me-1"></i>Logout</button>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-container">
+                <div class="header-container text-center">
+                    <div class="align-items-center">
+                        <a href="profile">
+                            <img src="../../../assets/img/profile.png" style="width: 100px; height: auto;">
+                        </a>
+                    </div>
+                    <h2>{{user1?.firstName}}</h2>
+                    <p><a href="#" class="header-link">{{user1?.email}}</a></p>
+
+                </div>
+                <div class="text-center" style="padding-top: 10px;">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="profile-container">
+                <h3 class="info-title">Personal Details</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>First Name:</strong> <input type="text" class="form-control" id="firstname"
+                                placeholder="Enter First Name" [(ngModel)]="firstName"></p>
+                        <p><strong>Gender:</strong> <input type="text" class="form-control" id="gender"
+                                placeholder="Enter Your Gender" [(ngModel)]="gender"></p>
+                        <p><strong>Birthday:</strong><input type="text" class="form-control" id="birthday"
+                                placeholder="Enter Your Birthday Date" [(ngModel)]="birthday"></p>
+                        <p><strong>Address:</strong><input type="text" class="form-control" id="address"
+                                placeholder="Enter Your Address" [(ngModel)]="address"></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Last Name:</strong> <input type="text" class="form-control" id="lastname"
+                                placeholder="Enter Your Last Name" [(ngModel)]="lastName"></p>
+                        <p><strong>Marital Status:</strong> <input type="text" class="form-control" id="status"
+                                placeholder="Enter Your Marital Status" [(ngModel)]="status"></p>
+                        <p><strong>Age:</strong> <input type="text" class="form-control" id="age"
+                                placeholder="Enter Your Age" [(ngModel)]="age"></p>
+                        <p><strong>Contact:</strong> <input type="text" class="form-control" id="contact"
+                                placeholder="Enter Your Phone Number" [(ngModel)]="phone"></p>
+
+
+                    </div>
+                </div>
+                <h3 class="info-title">skills:</h3>
+                <textarea name="jobDescription" id="skills" class="form-control" placeholder="Enter skills like: java, c++ etec.."
+                    [(ngModel)]="skills"></textarea>
+                <h3 class="info-title">Education:</h3>
+                <textarea name="jobDescription" id="education" class="form-control"
+                    placeholder="enter your education career" [(ngModel)]="education"></textarea>
+                <h3 class="info-title">Experiences:</h3>
+                <textarea name="jobDescription" id="experiences" class="form-control"
+                    placeholder="Enter your job experiences" [(ngModel)]="experiences"></textarea>
+                <div class="d-flex justify-content-end mt-5">
+                    <div>
+                        <button class="btn btn-secondary me-2" (click)="cancel()">Cancel</button>
+                        <button class="btn btn-primary" (click)="updateuser()">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

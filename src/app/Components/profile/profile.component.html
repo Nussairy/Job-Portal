@@ -1,0 +1,117 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #f4f7fa;
+    }
+
+    .profile-container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-container {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px 8px 0 0;
+    }
+
+    .header-link {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .info-title {
+        color: #007bff;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <div class="imgprofile">
+            <img src="../../../assets/img/logo.png" style="width: 70px; height: auto;">
+        </div>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li>
+                <a class="btn btn-outline-info border-0" href="/">Home</a>
+            </li>
+            <li>
+                <button class="btn btn-outline-info border-0" (click)="careers()">Jobs
+                </button><br>
+            </li>
+        </ul>
+
+        <div>
+            <button class="btn bg-transparent; btn btn-outline-info border-0  mb-3"
+                (click)="logout()"><i class="fa-solid fa-arrow-left me-1"></i>Logout
+            </button>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-container">
+                <div class="header-container text-center">
+                    <div class="align-items-center">
+                        <a href="profile">
+                            <img src="../../../assets/img/profile.png" style="width: 100px; height: auto;">
+                        </a>
+                    </div>
+                    <h2>{{user1?.firstName}} {{user1?.lastName}}</h2>
+                    <p><a href="#" class="header-link">{{user1?.email}}</a></p>
+
+                </div>
+                <div class="text-center" style="padding-top: 10px;">
+                    <button class="btn btn-outline-info border-0 mb-4" style="padding: 10px;" (click)="editProfile()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-pen-fill" viewBox="0 0 16 16">
+                            <path
+                                d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001" />
+                        </svg>
+                        Edit Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="profile-container">
+                <h3 class="info-title">Personal Details</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>First Name:</strong> {{user1?.firstName}}</p>
+                        <p><strong>Gender:</strong> {{user1?.gender}}</p>
+                        <p><strong>Birthday:</strong> {{user1?.birthday}}</p>
+                        <p><strong>Address:</strong> {{user1?.address}}</p>
+
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Last Name:</strong> {{user1?.lastName}}</p>
+                        <p><strong>Marital Status:</strong> {{user1?.status}}</p>
+                        <p><strong>Age:</strong> {{user1?.age}}</p>
+                        <p><strong>Phone:</strong>{{user1?.phone}}</p>
+
+                    </div>
+                </div>
+                <h3 class="info-title">Skills:</h3>
+                <p>{{user1?.skills}}</p>
+                <h3 class="info-title">Education:</h3>
+                <p>{{user1?.education}}</p>
+
+                <h3 class="info-title">Experiences:</h3>
+                <p>{{user1?.experiences}}</p>
+            </div>
+        </div>
+    </div>
+</div>

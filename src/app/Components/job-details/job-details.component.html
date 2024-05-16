@@ -1,0 +1,49 @@
+<header>
+    <nav class="navbar navbar-expand-lg px-4 pt-3 pb-3">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active text-light me-3" aria-current="page" href="careers">Jobs</a>
+                    <a class="nav-link active text-light btn btn-warning px-4" aria-current="page" href="">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="ms-3 me-0 pb-3" *ngIf="job">
+        <h2 class="text-light">{{job.title}}</h2>
+    </div>
+</header>
+<section class="mt-5 container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-9">
+            <div class="ms-3" *ngIf="job">
+                <h4>{{job.title}}</h4>
+                <h5 class="mt-5">Job Description:</h5>
+                <p>{{job.details}}</p>
+                <h5 class="mt-5">Job Type:</h5>
+                <p><b>{{job.type}}</b></p>
+                <h5 class="mt-5">Salary:</h5>
+                <p><b>{{job.salary}}</b></p>
+                <button class="btn btn-warning mt-5" (click)="applyNow()">Apply for this position</button><br>
+                <button class="btn btn-secondary mt-2">Save</button>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card rounded-4 p-3">
+                <div class="card-body">
+                    <h3 class="card-title mb-4">Summary</h3>
+                    <h5 class="card-title">Setup:</h5>
+                    <p class="card-text">{{job.setup}}</p>
+                    <h5 class="card-title mt-3">Country:</h5>
+                    <p class="card-text">{{job.location}}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<footer class="mt-5 mb-0"></footer>

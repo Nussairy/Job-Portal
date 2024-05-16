@@ -1,0 +1,24 @@
+<div class="vh-100 row gx-0">
+
+    <div class="col-md-6 position-relative">
+        <img src="../../../assets/img/Login&Register.jpeg" alt="Login Image" class="w-100 h-100">
+        <div class="layer position-absolute top-0 bottom-0 start-0 end-0"></div>
+    </div>
+
+    <div class="col-md-6 d-flex justify-content-center align-items-center">
+        <div class="w-50 h-50">
+            <h2>Login to Your Account</h2>
+            <div class="my-3">
+                <input type="text" placeholder="Email" id="Email" class="form-control" [(ngModel)]="email">
+                <input type="password" placeholder="Password" id="Password" class="form-control mt-3" [(ngModel)]="password">
+                <button class="btn btn-info w-100 mt-3 text-light" (click)="login()">Login</button>
+            </div>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="logInAsCompany">
+                <label class="form-check-label" for="flexCheckDefault">Login as a company</label>
+            </div>
+            <p class="text-center"><b>Don't have an account yet? </b><a href="register" class="text-decoration-none">Register</a></p>
+        </div>
+    </div>
+
+</div>

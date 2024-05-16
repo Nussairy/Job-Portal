@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "jobPortal": {
+    "jobportal": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -35,9 +35,12 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -72,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "jobPortal:build:production"
+              "buildTarget": "jobportal:build:production"
             },
             "development": {
-              "buildTarget": "jobPortal:build:development"
+              "buildTarget": "jobportal:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "jobPortal:build"
+            "buildTarget": "jobportal:build"
           }
         },
         "test": {
@@ -103,8 +106,28 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "jobportal:build:production",
+              "serveTarget": "jobportal:serve:production"
+            },
+            "development": {
+              "buildTarget": "jobportal:build:development",
+              "serveTarget": "jobportal:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "d6b0ca67-7668-4b63-8bb3-3180f8275e32"
   }
 }

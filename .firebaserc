@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "job-portal-b96b6": {
+      "hosting": {
+        "jobportal": [
+          "job-portal-b96b6"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "job-portal-b96b6"
+  }
+}

@@ -1,0 +1,43 @@
+.header{
+    background-image: url("/assets/img/Home.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    
+    height: 500px;
+}
+.navbar{
+    transition: background-color 0.3s ease;
+}
+.navbar-scrolled {
+    background-color: #333 !important;
+  }
+.layer{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color:rgba(0, 0, 0, 0.4);
+}
+.canada{
+    background-image: url("../../../assets/img/Canada.jpeg");
+    background-size: 100% 100%;
+}
+.australia{
+    background-image: url("../../../assets/img/Australia.jpeg");
+    background-size: 100% 100%;
+}
+.usa{
+    background-image: url("../../../assets/img/USA.jpeg");
+    background-size: 100% 100%;
+}
+.newzealand{
+    background-image: url("../../../assets/img/New\ Zealand.jpeg");
+    background-size: 100% 100%;
+}
+svg{
+    height: 2em;
+}
+footer{
+    background-color: #002e5b;
+    height: 100px;
+}
